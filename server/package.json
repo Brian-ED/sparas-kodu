@@ -1,0 +1,14 @@
+{
+  "name": "test123",
+  "version": "1.0.0",
+  "description": "no",
+  "main": "forApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Ellingsgaard",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "*"
+  }
+}
