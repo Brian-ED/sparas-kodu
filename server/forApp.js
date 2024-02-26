@@ -1,10 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 
-const hostname = process.argv[2]; //"81.18.236.92";
-if (hostname == undefined) {
-  hostname = "0.0.0.0"
-}
+const hostname = process.argv[2]==undefined? "0.0.0.0": process.argv[2]; //"81.18.236.92";
 const port = 3000;
 
 const server = http.createServer((req, res) => {
