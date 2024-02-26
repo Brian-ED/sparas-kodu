@@ -1,9 +1,7 @@
-// If you want a local test server that accepts any URL and just dumps the request to the console, you can use node:
-
 const http = require("http");
 const fs = require("fs");
 
-const hostname = "0.0.0.0";
+const hostname = "81.18.236.92";
 const port = 3000;
 
 const server = http.createServer((req, res) => {
