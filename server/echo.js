@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
 
   res.statusCode = 200;
   res.ok = true
-  res.setHeader("Content-Type", "text/plain");
+  res.setHeader("Content-Type", "application/json");
   res.setHeader("content-length", 70)
   // console.log(req.headers["user-agent"])
   res.redirected = false
@@ -42,14 +42,12 @@ const server = http.createServer((req, res) => {
   })
   let outputData = fs.readFileSync("data.json").toString()
   console.log(JSON.parse(outputData))
-  let x = JSON.stringify(
-    {
-      type: "cors",
-      url: "http://192.168.1.161:3000/",
-      redirected: false,
-      data: JSON.parse(outputData)
-    }, null, 2
-  )
+  let x = {
+    type: "cors",
+    url: "http://192.168.1.161:3000/",
+    redirected: false,
+    data: JSON.parse(outputData)
+  }
   console.log(x)
   res.end(x)
 });
