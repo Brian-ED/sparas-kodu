@@ -1,20 +1,5 @@
 function getCurrentMoney(){
-  fetch("http://192.168.1.161:3000/", {
-    method: "GET",
-    mode: "cors",
-    headers: {
-      host: '192.168.1.161:3000',
-      'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0',
-      accept: '*/*',
-      'accept-language': 'en-GB,en;q=0.5',
-      'accept-encoding': 'gzip, deflate',
-      referer: 'http://brian-e.online/',
-      'content-type': 'application/json',
-      origin: 'http://brian-e.online',
-      dnt: '1',
-      connection: 'keep-alive'
-    }
-  })
+  fetch("http://192.168.1.161:3000/")
   .then((response) => response.json())
   .then((json) => {
     console.log(json.data.userAcc)
