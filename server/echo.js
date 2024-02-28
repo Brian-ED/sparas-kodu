@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
 
   let jsonText = [];
   req.on('data', function(chunk) {
-    jsonText.push(chunk);
+    jsonText.push(chunk.toString());
   });
   req.on('end', function() {
     if (debug==1) {
