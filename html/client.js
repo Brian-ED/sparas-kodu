@@ -29,11 +29,6 @@ function moveServerMoney(amount) {
   });
 }
 
-fetchPromise.then((response) => {
-  console.log(response.status);
-});
-
-
 function setText() {
   // console.log(money)
   let dispMoney = Math.round(money%500)
