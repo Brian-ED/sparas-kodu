@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
   res.url = "http://192.168.1.161:3000/"
 
   let jsonText = "";
-  req.on("data", (chunk) => body += chunk)
+  req.on("data", (chunk) => jsonText += chunk)
   req.on("end", function () {
     if (debug==1) {
       console.log('BODY:');
