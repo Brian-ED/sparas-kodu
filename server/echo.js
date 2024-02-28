@@ -30,18 +30,17 @@ const server = http.createServer((req, res) => {
     response.on('end', function() {
       if (debug==1) {
         console.log('BODY:');
-        console.log(JSON.parse(jsonText.join('')))
+        console.log(JSON.parse(jsonTexts.join('')))
       }
   
       let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-      input = Number(JSON.parse(jsonText.join('')).moved)
+      input = Number(JSON.parse(jsonTexts.join('')).moved)
       if (isNaN(input)) input = 0;
       jsonObj["userAcc"]    -= input
       jsonObj["savingsAcc"] += input
       if (jsonObj["userAcc"] < 0) {
         jsonObj = reset()
       }
-      jsonText = []
       fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
     })
   })
