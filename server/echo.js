@@ -47,7 +47,7 @@ const server = http.createServer((req, res) => {
         type: "cors",
         url: "http://192.168.1.161:3000/",
         redirected: false,
-        "data": JSON.parse(outputData)
+        data: JSON.parse(outputData)
       }, null, 2
     )
   )
