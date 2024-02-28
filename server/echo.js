@@ -29,15 +29,20 @@ const server = http.createServer((req, res) => {
   res.type = "cors"
   res.url = "http://192.168.1.161:3000/"
 
+  let jsonText = "";
   req.on("data", function(chunk) {
+  })
+  response.on('end', function () {
+
     if (debug==1) {
-      console.log("BODY: ")
-      console.log(chunk);
+      console.log('BODY:');
+      console.log(jsonText);
       console.log("BODY2: ")
-      console.log(chunk.toString());
+      console.log(jsonText.toString());
     }
+
     let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-    input = Number(JSON.parse(chunk.toString()).moved)
+    input = Number(JSON.parse(jsonText.toString()).moved)
     if (isNaN(input)) input = 0;
     jsonObj["userAcc"]    -= input
     jsonObj["savingsAcc"] += input
@@ -45,7 +50,8 @@ const server = http.createServer((req, res) => {
       jsonObj = reset()
     }
     fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
-  })
+  });
+
   let outputData = fs.readFileSync("data.json").toString()
   let x = JSON.stringify(
     {
