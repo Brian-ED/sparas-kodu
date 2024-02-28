@@ -1,5 +1,5 @@
 function getCurrentMoney(){
-  fetch("http://192.168.1.57:3000/", {
+  fetch("http://192.168.1.161:3000/", {
     method: "GET",
     mode: "cors",
     headers: {
@@ -24,7 +24,7 @@ function getCurrentMoney(){
 
 
 function moveServerMoney(amount) {
-  fetch("http://192.168.1.57:3000/", {
+  fetch("http://192.168.1.161:3000/", {
     method: "POST",
     mode: "cors",
     body: `${amount}`,
