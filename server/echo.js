@@ -23,10 +23,10 @@ const server = http.createServer((req, res) => {
   }
 
   let jsonText = [];
-  response.on('data', function(chunk) {
+  req.on('data', function(chunk) {
     jsonText.push(chunk);
   });
-  response.on('end', function() {
+  req.on('end', function() {
     if (debug==1) {
       console.log('BODY:');
       console.log(JSON.parse(jsonText.join('')))
