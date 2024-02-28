@@ -2,13 +2,14 @@ function getCurrentMoney(){
   a = fetch("http://192.168.1.161:3000/")
   console.log("a")
   console.log(a)
-  b = a.then((json) => {
+  b = a.then((response) => {console.log(response);return response.json()})
+  console.log("b")
+  console.log(b)
+  b.then((json) => {
     userMoney    = json.data.userAcc
     savingsMoney = json.data.savingsAcc
     setText()
   });
-  console.log("b")
-  console.log(b)
 }
 
 function setText() {
