@@ -40,8 +40,22 @@ const server = http.createServer((req, res) => {
   })
   let jsonStr = fs.readFileSync("data.json").toString()
   let outputJSON = JSON.stringify(JSON.parse(jsonStr), null, 2)
-  res.end(`{\"Host\": \"localhost:3000\", \"User-Agent\": \"curl/bqn\", \"data\":${outputJSON}}`); 
+  res.end(`{\"Host\":\"localhost:3000\",\"User-Agent\": \"curl/bqn\",\"data\":${outputJSON}}`); 
 });
+
+
+// fetch("https://bar.other/doc", {
+//   method: "POST",
+//   mode: "cors",
+//   headers: {
+//     "Content-Type": "text/xml",
+//     "X-PINGOTHER": "pingpong",
+//   },
+//   body: "<person><name>Arun</name></person>",
+// });
+
+
+
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://localhost:${port}/`);

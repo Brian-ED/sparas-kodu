@@ -1,10 +1,5 @@
 function getCurrentMoney(){
-  fetch("http://localhost:3000/", {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json"
-    }
-  })
+  fetch("http://localhost:3000/")
   .then((response) => response.json())
   .then((json) => {
     console.log(json.data.userAcc)
