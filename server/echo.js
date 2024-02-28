@@ -22,27 +22,29 @@ const server = http.createServer((req, res) => {
     console.log(req.headers);
   }
 
-  let jsonText = [];
-  req.on('data', function(chunk) {
-    jsonText.push(chunk.toString());
-  });
-  req.on('end', function() {
-    if (debug==1) {
-      console.log('BODY:');
-      console.log(JSON.parse(jsonText.join('')))
-    }
-
-    let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-    input = Number(JSON.parse(jsonText.join('')).moved)
-    if (isNaN(input)) input = 0;
-    jsonObj["userAcc"]    -= input
-    jsonObj["savingsAcc"] += input
-    if (jsonObj["userAcc"] < 0) {
-      jsonObj = reset()
-    }
-    jsonText = []
-    fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
-  });
+  req.on('response',function(response){
+    let jsonTexts = []
+    response.on('data', function(chunk) {
+      jsonTexts.push(chunk)
+    })
+    response.on('end', function() {
+      if (debug==1) {
+        console.log('BODY:');
+        console.log(JSON.parse(jsonText.join('')))
+      }
+  
+      let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
+      input = Number(JSON.parse(jsonText.join('')).moved)
+      if (isNaN(input)) input = 0;
+      jsonObj["userAcc"]    -= input
+      jsonObj["savingsAcc"] += input
+      if (jsonObj["userAcc"] < 0) {
+        jsonObj = reset()
+      }
+      jsonText = []
+      fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
+    })
+  })
 
   let outputData = fs.readFileSync("data.json").toString()
   let x = JSON.stringify(
