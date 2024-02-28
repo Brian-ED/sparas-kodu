@@ -44,6 +44,14 @@ const server = http.createServer((req, res) => {
       fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
     })
   })
+  req.statusCode = 200;
+  req.ok = true
+  req.setHeader("Content-Type", "application/json");
+  req.redirected = false
+  req.statusText = "OK"
+  req.type = "cors"
+  req.url = "http://192.168.1.161:3000/"
+  req.setHeader("Access-Control-Allow-Origin", "*")
   req.end();
 
   let outputData = fs.readFileSync("data.json").toString()
