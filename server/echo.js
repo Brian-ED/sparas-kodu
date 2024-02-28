@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
     if (jsonObj["userAcc"] < 0) {
       jsonObj = reset()
     }
-    jsonText = ""
+    jsonText = []
     fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
   });
 
