@@ -21,12 +21,24 @@ function moveServerMoney(amount) {
   fetch("http://192.168.1.161:3000/", {
     method: "POST",
     mode: "cors",
-    body: `${amount}`,
+    body: `{moved:${amount}`,
     headers: {
-      "Content-type": "application/json"
-    }
+      "Content-Type": "text/xml",
+//      "X-PINGOTHER": "pingpong",
+    },
   });
 }
+
+const fetchPromise = fetch("https://bar.other/doc", {
+  method: "POST",
+  mode: "cors",
+  body: "<person><name>Arun</name></person>",
+});
+
+fetchPromise.then((response) => {
+  console.log(response.status);
+});
+
 
 function setText() {
   // console.log(money)

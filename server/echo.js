@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
       console.log(chunk.toString());
     }
     let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-    input = Number(chunk.toString())
+    input = Number(JSON.parse(chunk.toString()).moved)
     if (isNaN(input)) input = 0;
     jsonObj["userAcc"]    -= input
     jsonObj["savingsAcc"] += input
