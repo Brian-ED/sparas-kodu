@@ -20,7 +20,6 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.ok = true
   res.setHeader("Content-Type", "application/json");
-  res.setHeader("content-length", 70)
   // console.log(req.headers["user-agent"])
   res.redirected = false
   res.statusText = "OK"
@@ -51,6 +50,7 @@ const server = http.createServer((req, res) => {
     }, null, 2
   )
   console.log(x)
+  res.setHeader("content-length", x.length)
   res.end(x)
 });
 
