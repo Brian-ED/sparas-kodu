@@ -22,18 +22,18 @@ const server = http.createServer((req, res) => {
     console.log(req.headers);
   }
 
-  let jsonText = ""
-  req.on("data", function (chunk) {jsonText += chunk.toString()})
-  req.on("end", function () {
+  let jsonText = [];
+  response.on('data', function(chunk) {
+    jsonText.push(chunk);
+  });
+  response.on('end', function() {
     if (debug==1) {
       console.log('BODY:');
-      console.log(jsonText);
-      console.log("BODY2: ")
-      console.log(jsonText.toString());
+      console.log(JSON.parse(jsonText.join('')))
     }
 
     let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-    input = Number(JSON.parse(jsonText).moved)
+    input = Number(JSON.parse(jsonText.join('')).moved)
     if (isNaN(input)) input = 0;
     jsonObj["userAcc"]    -= input
     jsonObj["savingsAcc"] += input
