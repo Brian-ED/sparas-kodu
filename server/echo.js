@@ -29,8 +29,8 @@ const server = http.createServer((req, res) => {
   res.type = "cors"
   res.url = "http://192.168.1.161:3000/"
 
-  let jsonText = "";
-  req.on("data", (chunk) => jsonText += chunk)
+  let jsonText = ""
+  req.on("data", (chunk) => jsonText += chunk.toString())
   req.on("end", function () {
     if (debug==1) {
       console.log('BODY:');
@@ -40,13 +40,14 @@ const server = http.createServer((req, res) => {
     }
 
     let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-    input = Number(JSON.parse(jsonText.toString()).moved)
+    input = Number(JSON.parse(jsonText).moved)
     if (isNaN(input)) input = 0;
     jsonObj["userAcc"]    -= input
     jsonObj["savingsAcc"] += input
     if (jsonObj["userAcc"] < 0) {
       jsonObj = reset()
     }
+    jsonText = ""
     fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
   });
 
