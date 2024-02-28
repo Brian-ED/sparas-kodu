@@ -1,9 +1,9 @@
 function getCurrentMoney(){
-  fetch("http://192.168.1.57:3000/", {
+  fetch("http://192.168.1.161:3000/", {
     method: "GET",
     mode: "cors",
     headers: {
-      host: '192.168.1.57:3000',
+      host: '192.168.1.161:3000',
       'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0',
       accept: '*/*',
       'accept-language': 'en-GB,en;q=0.5',
