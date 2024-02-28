@@ -36,7 +36,7 @@ const server = http.createServer((req, res) => {
   })
   let jsonStr = fs.readFileSync("data.json").toString()
   let outputJSON = JSON.stringify(JSON.parse(jsonStr), null, 2)
-  res.end(json.stringify(
+  res.end(JSON.stringify(
       {
         host:"192.168.1.161:3000",
         "data":outputJSON
