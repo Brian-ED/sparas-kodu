@@ -36,7 +36,7 @@ const server = http.createServer((req, res) => {
   })
   let outputData = fs.readFileSync("data.json").toString()
   
-  console.log(`{\"host\":\"192.168.1.161:3000\",\"User-Agent\": \"curl/bqn\",\"data\":${outputJSON}}`); 
+  console.log(`{\"host\":\"192.168.1.161:3000\",\"User-Agent\": \"curl/bqn\",\"data\":""}`); 
   console.log(
     JSON.stringify(
       {
