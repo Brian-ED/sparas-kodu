@@ -1,5 +1,3 @@
-// If you want a local test server that accepts any URL and just dumps the request to the console, you can use node:
-
 const http = require("http");
 const fs = require("fs");
 
@@ -41,7 +39,7 @@ const server = http.createServer((req, res) => {
   })
   let jsonStr = fs.readFileSync("data.json").toString()
   let outputJSON = JSON.stringify(JSON.parse(jsonStr), null, 2)
-  res.end(`{\"Host\":\"localhost:3000\",\"User-Agent\": \"curl/bqn\",\"data\":${outputJSON}}`); 
+  res.end(`{\"Host\":\"192.168.1.161:3000\",\"User-Agent\": \"curl/bqn\",\"data\":${outputJSON}}`); 
 });
 
 
