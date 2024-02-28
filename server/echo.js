@@ -10,6 +10,8 @@ function reset(){
   }
 }
 
+fs.writeFileSync("data.json", JSON.stringify(reset(), null, 2))
+
 const hostname = process.argv[2]==undefined? "0.0.0.0": process.argv[2]
 const port = 3000
 
