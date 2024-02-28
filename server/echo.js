@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
   req.on('response',function(response){
     let jsonTexts = []
     response.on('data', function(chunk) {
-      jsonTexts.push(chunk)
+      jsonTexts.push(chunk.toString())
     })
     response.on('end', function() {
       if (debug==1) {
