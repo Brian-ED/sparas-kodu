@@ -11,7 +11,6 @@ function getCurrentMoney(){
 function setText() {
   let dispUserMoney    = Math.round(userMoney*100)/100
   let dispSavingsMoney = Math.round(savingsMoney*100)/100
-  console.log(userMoney)
   userAccEl   .textContent = `${dispUserMoney}kr`
   savingsAccEl.textContent = `${dispSavingsMoney}kr`
 }

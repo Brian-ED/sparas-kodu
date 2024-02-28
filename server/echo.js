@@ -24,7 +24,6 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.ok = true
   res.setHeader("Content-Type", "application/json");
-  // console.log(req.headers["user-agent"])
   res.redirected = false
   res.statusText = "OK"
   res.type = "cors"
@@ -54,7 +53,6 @@ const server = http.createServer((req, res) => {
       data: JSON.parse(outputData)
     }, null, 2
   )
-  console.log(x)
   res.setHeader("content-length", x.length)
   res.setHeader("Access-Control-Allow-Origin", "*")
   res.end(x)
