@@ -10,13 +10,17 @@ function reset(){
 
 fs.writeFileSync("data.json", JSON.stringify(reset(), null, 2))
 
-const hostname = process.argv[2]==undefined? "0.0.0.0": process.argv[2]
+// const hostname = process.argv[2]==undefined? "0.0.0.0": process.argv[2]
+const hostname = "0.0.0.0"
+let debug = 0
+if (process.argv[2]==undefined) debug = 1
 const port = 3000
 
 const server = http.createServer((req, res) => {
-  console.log(`\n${req.method} ${req.url}`);
-  console.log(req.headers);
-
+  if (debug==1) {
+    console.log(`\n${req.method} ${req.url}`);
+    console.log(req.headers);
+  }
   res.statusCode = 200;
   res.ok = true
   res.setHeader("Content-Type", "application/json");
@@ -27,8 +31,9 @@ const server = http.createServer((req, res) => {
   res.url = "http://192.168.1.161:3000/"
 
   req.on("data", function(chunk) {
-    console.log("BODY: " + chunk);
-
+    if (debug==1) {
+      console.log("BODY: " + chunk);
+    }
     let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
     input = Number(chunk.toString())
     if (isNaN(input)) input = 0;

@@ -1,10 +1,7 @@
 function getCurrentMoney(){
-  a = fetch("http://192.168.1.161:3000/")
-  console.log(a)
-  b = a.then((response) => {console.log(response);return response.json()})
-  console.log(b)
-  c = b.then((json) => {console.log(json);return money=json.data.userAcc});
-  console.log(c)
+  fetch("http://192.168.1.161:3000/")
+  .then((response) => response.json())
+  .then((json) => money=json.data.userAcc);
 }
 
 
