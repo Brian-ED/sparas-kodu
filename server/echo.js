@@ -40,7 +40,6 @@ const server = http.createServer((req, res) => {
   console.log(
     JSON.stringify(
       {
-        host:"192.168.1.161:3000",
         "data":JSON.parse(outputData)
       }, null, 2
     )
