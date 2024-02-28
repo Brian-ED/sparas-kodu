@@ -31,8 +31,10 @@ const server = http.createServer((req, res) => {
 
   req.on("data", function(chunk) {
     if (debug==1) {
-      console.log("BODY: " + chunk);
-      console.log("BODY2: " + chunk.toString());
+      console.log("BODY: ")
+      console.log(chunk);
+      console.log("BODY2: ")
+      console.log(chunk.toString());
     }
     let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
     input = Number(chunk.toString())
