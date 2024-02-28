@@ -21,14 +21,13 @@ const server = http.createServer((req, res) => {
     console.log("BODY: " + chunk);
   });
   res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  console.log(req.headers["user-agent"])
+  // res.setHeader("Content-Type", "text/plain");
+  // console.log(req.headers["user-agent"])
 
   req.on("data", function(chunk) {
     console.log("BODY: " + chunk);
 
     let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-
     input = Number(chunk.toString())
     if (isNaN(input)) input = 0;
     jsonObj["userAcc"]    -= input
@@ -40,26 +39,10 @@ const server = http.createServer((req, res) => {
   })
   let jsonStr = fs.readFileSync("data.json").toString()
   let outputJSON = JSON.stringify(JSON.parse(jsonStr), null, 2)
-  res.end(`{\"Host\":\"localhost:3000\",\"User-Agent\": \"curl/bqn\",\"data\":${outputJSON}}`); 
+  res.end(outputJSON); 
 });
-
-
-// fetch("https://bar.other/doc", {
-//   method: "POST",
-//   mode: "cors",
-//   headers: {
-//     "Content-Type": "text/xml",
-//     "X-PINGOTHER": "pingpong",
-//   },
-//   body: "<person><name>Arun</name></person>",
-// });
-
-
 
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
-
-
-// console.log(fs.readdirSync("./"))

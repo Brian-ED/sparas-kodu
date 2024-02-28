@@ -1,6 +1,7 @@
 function getCurrentMoney(){
-  fetch("http://localhost:3000/", {
+  fetch("http://192.168.1.57:3000/", {
     method: "GET",
+    mode: "cors",
     headers: {
       "Content-type": "application/json"
     }

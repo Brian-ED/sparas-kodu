@@ -1,6 +1,7 @@
 function getCurrentMoney(){
-  fetch("http://localhost:3000/", {
+  fetch("http://192.168.1.57:3000/", {
     method: "GET",
+    mode: "cors",
     headers: {
       "Content-type": "application/json"
     }
@@ -9,9 +10,23 @@ function getCurrentMoney(){
   .then((json) => {money=json.data.userAcc});
 }
 
+
+
+// fetch("https://bar.other/doc", {
+//   method: "POST",
+//   mode: "cors",
+//   headers: {
+//     "Content-Type": "text/xml",
+//     "X-PINGOTHER": "pingpong",
+//   },
+//   body: "<person><name>Arun</name></person>",
+// });
+
+
 function moveServerMoney(amount) {
-  fetch("http://localhost:3000/", {
+  fetch("http://192.168.1.57:3000/", {
     method: "POST",
+    mode: "cors",
     body: `${amount}`,
     headers: {
       "Content-type": "application/json"
