@@ -18,8 +18,14 @@ const server = http.createServer((req, res) => {
   console.log(req.headers);
 
   res.statusCode = 200;
+  res.ok = true
   res.setHeader("Content-Type", "text/plain");
+  res.setHeader("content-length", 70)
   // console.log(req.headers["user-agent"])
+  res.redirected = false
+  res.statusText = "OK"
+  res.type = "cors"
+  res.url = "http://192.168.1.161:3000/"
 
   req.on("data", function(chunk) {
     console.log("BODY: " + chunk);
@@ -38,6 +44,9 @@ const server = http.createServer((req, res) => {
   
   res.end(JSON.stringify(
       {
+        type: "cors",
+        url: "http://192.168.1.161:3000/",
+        redirected: false,
         "data":JSON.parse(outputData)
       }, null, 2
     )

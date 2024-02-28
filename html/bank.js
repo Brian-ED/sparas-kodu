@@ -5,15 +5,11 @@ function getCurrentMoney(){
   b = a.then((response) => {console.log(response);return response.json()})
   console.log("b")
   console.log(b)
-  c = b.then((json) => {
-    console.log("json")
-    console.log(json)
+  b.then((json) => {
     userMoney    = json.data.userAcc
     savingsMoney = json.data.savingsAcc
     setText()
   });
-  console.log("c")
-  console.log(c)
 }
 
 function setText() {
