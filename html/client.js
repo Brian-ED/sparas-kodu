@@ -23,17 +23,11 @@ function moveServerMoney(amount) {
     mode: "cors",
     body: `{moved:${amount}`,
     headers: {
-      "Content-Type": "text/xml",
+      "Content-Type": "appication/json",
 //      "X-PINGOTHER": "pingpong",
     },
   });
 }
-
-const fetchPromise = fetch("https://bar.other/doc", {
-  method: "POST",
-  mode: "cors",
-  body: "<person><name>Arun</name></person>",
-});
 
 fetchPromise.then((response) => {
   console.log(response.status);
