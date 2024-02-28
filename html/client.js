@@ -23,7 +23,6 @@ function moveServerMoney(amount) {
     mode: "cors",
     body: `{moved:${amount}`,
     headers: {
-      "Content-Type": "appication/json",
 //      "X-PINGOTHER": "pingpong",
     },
   });
