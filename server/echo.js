@@ -44,7 +44,7 @@ const server = http.createServer((req, res) => {
       fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
     })
   })
-  request.end();
+  req.end();
 
   let outputData = fs.readFileSync("data.json").toString()
   let x = JSON.stringify(
