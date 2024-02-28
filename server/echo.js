@@ -51,6 +51,7 @@ const server = http.createServer((req, res) => {
   )
   console.log(x)
   res.setHeader("content-length", x.length)
+  res.setHeader("Access-Control-Allow-Origin", "*")
   res.end(x)
 });
 
