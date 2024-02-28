@@ -1,13 +1,10 @@
 function getCurrentMoney(){
-  fetch("http://192.168.1.161:3000/", {
-    method: "GET",
-    mode: "cors",
-    headers: {
-      "Content-type": "application/json"
-    }
-  })
-  .then((response) => response.json())
-  .then((json) => {money=json.data.userAcc});
+  a = fetch("http://192.168.1.161:3000/")
+  console.log(a)
+  b = a.then((response) => {console.log(response);return response.json()})
+  console.log(b)
+  c = b.then((json) => {console.log(json);return money=json.data.userAcc});
+  console.log(c)
 }
 
 
