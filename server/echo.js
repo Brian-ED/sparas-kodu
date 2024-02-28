@@ -21,16 +21,9 @@ const server = http.createServer((req, res) => {
     console.log(`\n${req.method} ${req.url}`);
     console.log(req.headers);
   }
-  res.statusCode = 200;
-  res.ok = true
-  res.setHeader("Content-Type", "application/json");
-  res.redirected = false
-  res.statusText = "OK"
-  res.type = "cors"
-  res.url = "http://192.168.1.161:3000/"
 
   let jsonText = ""
-  req.on("data", (chunk) => jsonText += chunk.toString())
+  req.on("data", function (chunk) {jsonText += chunk.toString()})
   req.on("end", function () {
     if (debug==1) {
       console.log('BODY:');
@@ -60,6 +53,13 @@ const server = http.createServer((req, res) => {
       data: JSON.parse(outputData)
     }, null, 2
   )
+  res.statusCode = 200;
+  res.ok = true
+  res.setHeader("Content-Type", "application/json");
+  res.redirected = false
+  res.statusText = "OK"
+  res.type = "cors"
+  res.url = "http://192.168.1.161:3000/"
   res.setHeader("content-length", x.length)
   res.setHeader("Access-Control-Allow-Origin", "*")
   res.end(x)
