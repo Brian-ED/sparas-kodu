@@ -49,7 +49,7 @@ const server = http.createServer((req, res) => {
   res.end(JSON.stringify(
       {
         host:"192.168.1.161:3000",
-        "data":outputJSON
+        "data":JSON.parse(outputData)
       }, null, 2
     )
   )
