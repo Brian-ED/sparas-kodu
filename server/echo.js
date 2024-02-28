@@ -42,15 +42,16 @@ const server = http.createServer((req, res) => {
   })
   let outputData = fs.readFileSync("data.json").toString()
   console.log(JSON.parse(outputData))
-  res.end(JSON.stringify(
-      {
-        type: "cors",
-        url: "http://192.168.1.161:3000/",
-        redirected: false,
-        data: JSON.parse(outputData)
-      }, null, 2
-    )
+  let x = JSON.stringify(
+    {
+      type: "cors",
+      url: "http://192.168.1.161:3000/",
+      redirected: false,
+      data: JSON.parse(outputData)
+    }, null, 2
   )
+  console.log(x)
+  res.end(x)
 });
 
 
