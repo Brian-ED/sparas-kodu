@@ -1,0 +1,57 @@
+:root { 
+  --black: #000000;
+  --green-pea: #225941;
+  --hint-of-green: #dffee6;
+  --stromboli: #247150;
+  --vista-blue: #8ed1a2;
+ 
+  --font-size-l: 25px;
+  --font-size-m: 24px;
+  --font-size-s: 20px;
+  --font-size-xl: 30px;
+  --font-size-xs: 12px;
+  --font-size-xxl: 36px;
+  --font-size-xxxl: 64px;
+ 
+  --font-family-inter: "Inter", Helvetica;
+  --font-family-roboto: "Roboto", Helvetica;
+}
+.roboto-bold-black-24px {
+  color: var(--black);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.inter-black-black-12px {
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xs);
+  font-style: normal;
+  font-weight: 900;
+}
+
+.inter-black-green-pea-30px {
+  color: var(--green-pea);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 900;
+}
+
+.roboto-bold-green-pea-24px {
+  color: var(--green-pea);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.inter-black-hint-of-green-25px {
+  color: var(--hint-of-green);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 900;
+}

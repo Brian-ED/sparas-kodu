@@ -1,10 +1,13 @@
 ⟨Get,Post⟩ ← •Import "bqn-curl/curl.bqn"
+rg ← •Import "../rayed-bqn/ffi/raygui.bqn"
 
-httpbinURL←"https://212.55.42.148:3000/"
+httpbinURL←"http://localhost:3000"
 
-r←⟨⟩ Get httpbinURL∾"/get"
+r←⟨
+  "Content-Type: application/json"
+⟩ Get httpbinURL∾"/get/test"
+
 code‿headers‿content‿time‿redirectcount←r
-•SHow¨ code‿headers‿content‿time‿redirectcount
 ! 200=r.code
 ! 0=r.redirectCount
 ! 1=⊑"HTTP/"⍷r.headers
@@ -14,4 +17,4 @@ code‿headers‿content‿time‿redirectcount←r
 ! 1=+´"""User-Agent"": ""curl/bqn"""⍷r.content
 ! 0=+´"""Hello"": ""World"""⍷r.content
 
-•SHow 1+1
+•SHow¨ code‿headers‿content‿time‿redirectcount
