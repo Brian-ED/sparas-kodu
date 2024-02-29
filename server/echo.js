@@ -14,7 +14,7 @@ fs.writeFileSync("data.json", JSON.stringify(reset(), null, 2))
 const hostname = "192.168.1.161"
 let debug = 0
 if (process.argv[2]==undefined) debug = 1
-const port = 80
+const port = 3000
 
 const server = http.createServer((req, res) => {
   if (debug==1) {
