@@ -1,5 +1,5 @@
 function getCurrentMoney(){
-  a = fetch("http://192.168.1.161:80/")
+  a = fetch("http://192.168.1.161:3000/")
   b = a.then((response) => response.json())
   b.then((json) => {
     userMoney    = json.data.userAcc
