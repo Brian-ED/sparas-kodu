@@ -22,35 +22,27 @@ const server = http.createServer((req, res) => {
     console.log(req.headers);
   }
 
-  req.on('response',function(response){
-    let jsonTexts = []
-    response.on('data', function(chunk) {
-      jsonTexts.push(chunk.toString())
-    })
-    response.on('end', function() {
-      if (debug==1) {
-        console.log('BODY:');
-        console.log(JSON.parse(jsonTexts.join('')))
-      }
-  
-      let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-      input = Number(JSON.parse(jsonTexts.join('')).moved)
-      if (isNaN(input)) input = 0;
-      jsonObj["userAcc"]    -= input
-      jsonObj["savingsAcc"] += input
-      if (jsonObj["userAcc"] < 0) {
-        jsonObj = reset()
-      }
-      fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
-    })
+  let jsonTexts = []
+  response.on('data', function(chunk) {
+    jsonTexts.push(chunk.toString())
   })
-  req.statusCode = 200;
-  req.ok = true
-  req.redirected = false
-  req.statusText = "OK"
-  req.type = "cors"
-  req.url = "http://192.168.1.161:3000/"
-  req.end();
+  response.on('end', function() {
+    if (debug==1) {
+      console.log('BODY:');
+      console.log(JSON.parse(jsonTexts.join('')))
+    }
+
+    let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
+    input = Number(JSON.parse(jsonTexts.join('')).moved)
+    jsonTexts = []
+    if (isNaN(input)) input = 0;
+    jsonObj["userAcc"]    -= input
+    jsonObj["savingsAcc"] += input
+    if (jsonObj["userAcc"] < 0) {
+      jsonObj = reset()
+    }
+    fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
+  })
 
   let outputData = fs.readFileSync("data.json").toString()
   let x = JSON.stringify(
