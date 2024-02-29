@@ -14,7 +14,7 @@ fs.writeFileSync("data.json", JSON.stringify(reset(), null, 2))
 const hostname = "192.168.1.161"
 let debug = 0
 if (process.argv[2]==undefined) debug = 1
-const port = 3000
+const port = 80
 
 const server = http.createServer((req, res) => {
   if (debug==1) {
@@ -49,7 +49,7 @@ const server = http.createServer((req, res) => {
   let x = JSON.stringify(
     {
       type: "cors",
-      url: "http://192.168.1.161:3000/",
+      url: "http://192.168.1.161:80/",
       redirected: false,
       data: JSON.parse(outputData)
     }, null, 2
@@ -60,7 +60,7 @@ const server = http.createServer((req, res) => {
   res.redirected = false
   res.statusText = "OK"
   res.type = "cors"
-  res.url = "http://192.168.1.161:3000/"
+  res.url = "http://192.168.1.161:80/"
   res.setHeader("content-length", x.length)
   res.setHeader("Access-Control-Allow-Origin", "*")
   res.end(x)
