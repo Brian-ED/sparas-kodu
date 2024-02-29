@@ -32,17 +32,18 @@ const server = http.createServer((req, res) => {
       console.log(jsonTexts)
       console.log(JSON.parse(jsonTexts.join('')))
     }
-
-    let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
-    input = Number(JSON.parse(jsonTexts.join('')).moved)
-    jsonTexts = []
-    if (isNaN(input)) input = 0;
-    jsonObj["userAcc"]    -= input
-    jsonObj["savingsAcc"] += input
-    if (jsonObj["userAcc"] < 0) {
-      jsonObj = reset()
+    if (jsonTexts != []) {
+      let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
+      input = Number(JSON.parse(jsonTexts.join('')).moved)
+      jsonTexts = []
+      if (isNaN(input)) input = 0;
+      jsonObj["userAcc"]    -= input
+      jsonObj["savingsAcc"] += input
+      if (jsonObj["userAcc"] < 0) {
+        jsonObj = reset()
+      }
+      fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
     }
-    fs.writeFileSync("data.json", JSON.stringify(jsonObj, null, 2))
   })
 
   let outputData = fs.readFileSync("data.json").toString()
