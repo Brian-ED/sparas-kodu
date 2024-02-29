@@ -60,7 +60,7 @@ const server = http.createServer((req, res) => {
   res.redirected = false
   res.statusText = "OK"
   res.type = "cors"
-  res.url = "http://192.168.1.161:3000/"
+  res.url = "http://www.brian-e.online:3000/"
   res.setHeader("content-length", x.length)
   res.setHeader("Access-Control-Allow-Origin", "*")
   res.end(x)
