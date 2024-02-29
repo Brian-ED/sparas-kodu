@@ -21,7 +21,7 @@ function moveServerMoney(amount) {
   fetch("http://192.168.1.161:3000/", {
     method: "POST",
     mode: "cors",
-    body: `{moved:${amount}`,
+    body: `{moved:${amount}}`,
     headers: {
 //      "X-PINGOTHER": "pingpong",
     },
