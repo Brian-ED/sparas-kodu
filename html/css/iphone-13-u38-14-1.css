@@ -80,9 +80,9 @@
   border-radius: 72.5px;
   display: flex;
   height: 145px;
-  margin-left: 1.0px;
   min-width: 145px;
   padding: 46px 27px;
+  border: green;
 }
 
 .iphone-13-u38-14-1 .price {
