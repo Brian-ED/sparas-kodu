@@ -11,7 +11,7 @@ function reset(){
 fs.writeFileSync("data.json", JSON.stringify(reset(), null, 2))
 
 // const hostname = process.argv[2]==undefined? "0.0.0.0": process.argv[2]
-const hostname = "0.0.0.0"
+const hostname = "192.168.1.161"
 let debug = 0
 if (process.argv[2]==undefined) debug = 1
 const port = 3000
