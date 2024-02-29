@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
       console.log('BODY:');
       console.log(jsonTexts)
     }
-    if (jsonTexts != []) {
+    if (jsonTexts.join('')[0]=='{') {
       let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
       input = Number(JSON.parse(jsonTexts.join('')).moved)
       jsonTexts = []
