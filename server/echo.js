@@ -30,7 +30,6 @@ const server = http.createServer((req, res) => {
     if (debug==1) {
       console.log('BODY:');
       console.log(jsonTexts)
-      console.log(JSON.parse(jsonTexts.join('')))
     }
     if (jsonTexts != []) {
       let jsonObj = JSON.parse(fs.readFileSync("data.json").toString())
