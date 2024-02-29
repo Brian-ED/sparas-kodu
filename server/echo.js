@@ -29,6 +29,7 @@ const server = http.createServer((req, res) => {
   req.on('end', function() {
     if (debug==1) {
       console.log('BODY:');
+      console.log(jsonTexts)
       console.log(JSON.parse(jsonTexts.join('')))
     }
 
