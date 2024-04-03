@@ -29,7 +29,6 @@ function moveServerMoney(amount) {
 }
 
 function setText() {
-  // console.log(money)
   let dispMoney = Math.round(money%500)
   krtxt.textContent = `${dispMoney}kr`
   progressBar[0].style = `width: ${Math.ceil(dispMoney*0.60)}px;`
