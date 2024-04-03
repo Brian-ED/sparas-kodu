@@ -70,37 +70,3 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`port: ${port}`);
 });
-
-// OPTIONS /
-// {
-//   host: '192.168.1.161:3000',
-//   'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0',
-//   accept: '*/*',
-//   'accept-language': 'en-GB,en;q=0.5',
-//   'accept-encoding': 'gzip, deflate',
-//   'access-control-request-method': 'GET',
-//   'access-control-request-headers': 'content-type,user-agent',
-//   referer: 'http://brian-e.online/',
-//   origin: 'http://brian-e.online',
-//   dnt: '1',
-//   connection: 'keep-alive'
-// }
-// 
-// GET /
-// {
-//   host: '192.168.1.161:3000',
-//   'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0',
-//   accept: '*/*',
-//   'accept-language': 'en-GB,en;q=0.5',
-//   'accept-encoding': 'gzip, deflate',
-//   referer: 'http://brian-e.online/',
-//   'content-type': 'application/json',
-//   origin: 'http://brian-e.online',
-//   dnt: '1',
-//   connection: 'keep-alive'
-// }
-// 
-// Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://192.168.1.161:3000/. (Reason: CORS request did not succeed). Status code: (null).
-// 
-// Uncaught (in promise) TypeError: NetworkError when attempting to fetch resource.
-// Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://192.168.1.161:3000/. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 200.
